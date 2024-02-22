@@ -24,7 +24,7 @@
 
 ---
 
-# :Kết quả
+# Kết quả
 
 ### ✔ Tính toán CLTV
 Tính toán các chỉ số chính:
