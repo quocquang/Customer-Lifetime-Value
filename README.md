@@ -42,20 +42,20 @@ Tính toán các chỉ số chính:
 ---
 
 - Num_days (Số ngày mua hàng):
- - Có sự biến động đáng kể trong số ngày mua hàng của các khách hàng, từ 18 ngày đến 367 ngày.
- - Có một phần khách hàng mua hàng thường xuyên hơn trong thời gian quan sát.
+   - Có sự biến động đáng kể trong số ngày mua hàng của các khách hàng, từ 18 ngày đến 367 ngày.
+   - Có một phần khách hàng mua hàng thường xuyên hơn trong thời gian quan sát.
 - Num_transaction (Số lần giao dịch):
- - Từ 2 lần giao dịch tới 133 lần giao dịch, có sự đa dạng lớn về số lần mua hàng của các khách hàng.
- - Có thể thấy một số khách hàng thực hiện nhiều giao dịch hơn so với số khác, điều này có thể chỉ ra sự trung thành hoặc tích cực của họ đối với sản phẩm hoặc dịch vụ.
+   - Từ 2 lần giao dịch tới 133 lần giao dịch, có sự đa dạng lớn về số lần mua hàng của các khách hàng.
+   - Có thể thấy một số khách hàng thực hiện nhiều giao dịch hơn so với số khác, điều này có thể chỉ ra sự trung thành hoặc tích cực của họ đối với sản phẩm hoặc dịch vụ.
 - Quanity (Số lượng sản phẩm mua):
- - Số lượng sản phẩm mua hàng dao động từ 2 đến 623 sản phẩm.
- - Có sự biến động lớn giữa các khách hàng trong việc mua sắm số lượng sản phẩm, có thể phản ánh sở thích hoặc nhu cầu mua hàng khác nhau của họ.
-- otal_revenue (Tổng doanh số bán hàng):
- - Doanh số bán hàng trung bình từ 45,60 đô la đến 1.146,59 đô la.
- - Có sự chênh lệch lớn giữa các khách hàng về mức độ chi tiêu, có thể phản ánh sức mua và ưu tiên mua hàng của họ.
+   - Số lượng sản phẩm mua hàng dao động từ 2 đến 623 sản phẩm.
+   - Có sự biến động lớn giữa các khách hàng trong việc mua sắm số lượng sản phẩm, có thể phản ánh sở thích hoặc nhu cầu mua hàng khác nhau của họ.
+- Total_revenue (Tổng doanh số bán hàng):
+   - Doanh số bán hàng trung bình từ 45,60 đô la đến 1.146,59 đô la.
+   - Có sự chênh lệch lớn giữa các khách hàng về mức độ chi tiêu, có thể phản ánh sức mua và ưu tiên mua hàng của họ.
 - AOV (Average Order Value - Giá trị đơn hàng trung bình):
- - Giá trị đơn hàng trung bình dao động từ 2,45 đô la đến 78,70 đô la.
- - AOV là một chỉ số quan trọng để đánh giá hiệu suất bán hàng và khả năng sinh lời của doanh nghiệp, sự biến động trong AOV có thể phản ánh sự biến động trong chiến lược giá cả hoặc sự khác biệt trong hành vi mua hàng của khách hàng.
+   - Giá trị đơn hàng trung bình dao động từ 2,45 đô la đến 78,70 đô la.
+   - AOV là một chỉ số quan trọng để đánh giá hiệu suất bán hàng và khả năng sinh lời của doanh nghiệp, sự biến động trong AOV có thể phản ánh sự biến động trong chiến lược giá cả hoặc sự khác biệt trong hành vi mua hàng của khách hàng.
 
 
 ---
