@@ -26,7 +26,7 @@
 
 # :bookmark_tabs:Example Datasets
 
-### ✔ Ecommerce_Data-1 dataset
+## ✔ Ecommerce_Data-1 dataset
 
 - InvoiceNo: Unique identifier for each invoice.
 - StockCode: Code for the stock item.
@@ -62,8 +62,6 @@ First 10 rows
 # A. Data Exploration and Cleansing
 
 ## 🔤 IMPORT LIBRARY AND DATASET 
-
-<details><summary> Click to expand :arrow_down: </summary>
   
 ```python
 
@@ -80,6 +78,8 @@ os.chdir("C:/Users/phu/OneDrive/Pictures")
 customers = pd.read_csv('/content/drive/MyDrive/Final/De 1/dataset/customers_dataset.csv')
 
 ```
+
+---
 
 ## 🔎 EXPLORE, CLEAN & TRANSFORM DATA
 
@@ -115,7 +115,7 @@ df = df[df['Quantity'] >0]
 
 ```
 
-### ✔ Tính toán CLTV
+## ✔ Tính toán CLTV
 Tính toán các chỉ số chính:
 - num_days: Thời gian khách hàng gắn bó (tính bằng ngày)
 - num_transaction: Số lượng giao dịch
