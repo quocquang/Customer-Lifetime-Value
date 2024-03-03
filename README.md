@@ -38,7 +38,6 @@
 - Date: Date of the purchase.
 - Hour: Hour of the purchase.
 - Total_revenue: Total revenue generated from the purchase.
-<details><summary> 👆🏼 Click to expand Orders Dataset </summary>
 
 <div align="center">
 
@@ -62,7 +61,7 @@ First 10 rows
 
 # A. Data Exploration and Cleansing
 
-## 🔤 IMPORT LIBRARY AND DATASET 
+* IMPORT LIBRARY AND DATASET 
   
 ```python
 
@@ -82,7 +81,7 @@ customers = pd.read_csv('/content/drive/MyDrive/Final/De 1/dataset/customers_dat
 
 ---
 
-## 🔎 EXPLORE, CLEAN & TRANSFORM DATA
+* EXPLORE, CLEAN & TRANSFORM DATA
 
 ### 1️⃣ Ecommerce_Data-1  Dataset
 
