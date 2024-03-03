@@ -39,6 +39,8 @@
 - Hour: Hour of the purchase.
 - Total_revenue: Total revenue generated from the purchase.
 
+<details><summary>  Click to expand Campaign-Data Dataset </summary>
+
 <div align="center">
 
 **Table: Ecommerce_Data-1 dataset** 
@@ -54,66 +56,90 @@ First 10 rows
 | 541215    | 22662     | LUNCH BAG DOLLY GIRL DESIGN      | 10       | 1.65      | 14329.0    | United Kingdom | 2011-01-14 | 13   | 16.50         |
 | 565930    | POST      | POSTAGE                          | 5        | 18.00     | 12685.0    | France         | 2011-09-08 | 10   | 90.00         |
 
+</details>
 
 ---
 
 
 
-# A. Data Exploration and Cleansing
+#  IMPORT LIBRARY & CLEAN & TRANSFORM DATA.
 
-* IMPORT LIBRARY AND DATASET 
   
 ```python
-
- import pandas as pd
- import numpy as np
- import os 
+import pandas as pd
+import numpy as np
+import os 
 os.chdir("C:/Users/phu/OneDrive/Pictures")
-
 ```
 
 ```python
-
 #Upload dataset
 customers = pd.read_csv('/content/drive/MyDrive/Final/De 1/dataset/customers_dataset.csv')
-
 ```
+
+```python
+# Dropping the 'Unnamed: 0' column
+df=df.drop(columns='Unnamed: 0')
+```
+
+```python
+# Calculate total revenue by multiplying quantity and unit price
+df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
+```
+
+```python
+# Convert the 'Date' column to datetime format
+df['Date'] = pd.to_datetime(df['Date'])
+```
+
+```python
+# Remove rows where Quantity is less than or equal to 0
+df = df[df['Quantity'] >0]
+```
+
+```python
+# Define a function to compute customer moder
+def customer_moder(data):
+    max_date =data['Date'].max()
+    data = data.groupby('CustomerID').agg({
+    'Date':lambda x:(max_date-x.min()).days,
+    'InvoiceNo':lambda x:len(x),
+    'Quantity':lambda x:x.sum(),
+    'Total_revenue':lambda x:x.sum()
+})
+    return data
+# Apply the function to compute customer moder
+data = customer_moder(df)
+```
+
+```python
+# Rename columns
+data.columns = ['num_days','num_transaction','quanity','total_revenue']
+# Remove rows with zero or negative quantity
+data=data[data['quanity']>0]
+```
+
+```python
+data
+```
+| CustomerID | num_days | num_transaction | quanity | total_revenue |
+|------------|----------|-----------------|---------|---------------|
+| 12347.0    | 367      | 48              | 623     | 1146.59       |
+| 12348.0    | 358      | 7               | 531     | 550.92        |
+| 12349.0    | 18       | 16              | 203     | 406.32        |
+| 12350.0    | 310      | 2               | 36      | 45.60         |
+| 12352.0    | 296      | 21              | 163     | 663.33        |
+| ...        | ...      | ...             | ...     | ...           |
+| 18280.0    | 277      | 3               | 9       | 52.75         |
+| 18281.0    | 180      | 2               | 11      | 33.45         |
+| 18282.0    | 126      | 4               | 11      | 67.85         |
+| 18283.0    | 337      | 133             | 240     | 325.54        |
+| 18287.0    | 201      | 17              | 284     | 364.96        |
+
 
 ---
 
-* EXPLORE, CLEAN & TRANSFORM DATA
 
-### 1️⃣ Ecommerce_Data-1  Dataset
-
-```python
-
-df=df.drop(columns='Unnamed: 0')
-
-```
-
-```python
-
-df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
-
-```
-
-```python
-
-df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
-
-```
-
-```python
-
-df['Date'] = pd.to_datetime(df['Date'])
-
-```
-
-```python
-
-df = df[df['Quantity'] >0]
-
-```
 
 # Tính toán CLTV
 Tính toán các chỉ số chính:
