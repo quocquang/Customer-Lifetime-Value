@@ -10,7 +10,7 @@
  - The model utilizes:
  
     - Statistical Model:
-      - Calculating CLTV: Using the CLTV formula to compute the CLTV value for each customer. This formula relies on the following factors:
+        - Calculating CLTV: Using the CLTV formula to compute the CLTV value for each customer. This formula relies on the following factors:
         - Average Order Value (AOV): Total revenue divided by the number of orders.
         - Purchase Frequency: The number of orders divided by the number of days.
         - Churn Rate: The rate at which customers stop purchasing within a certain period of time.
