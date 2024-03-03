@@ -24,6 +24,37 @@
 
 ---
 
+# :bookmark_tabs:Example Datasets
+
+### ✔ Ecommerce_Data-1 dataset
+Provide information about orders
+- InvoiceNo: Unique identifier for each invoice.
+- StockCode: Code for the stock item.
+- Description: Description of the stock item.
+- Quantity: Number of items purchased.
+- UnitPrice: Price per unit of the item.
+- CustomerID: Unique identifier for each customer.
+- Country: Country where the purchase was made.
+- Date: Date of the purchase.
+- Hour: Hour of the purchase.
+- Total_revenue: Total revenue generated from the purchase.
+<details><summary> 👆🏼 Click to expand Orders Dataset </summary>
+
+<div align="center">
+
+**Table: Ecommerce_Data-1 dataset** 
+
+<div align="center">
+First 10 rows
+
+| InvoiceNo | StockCode | Description                      | Quantity | UnitPrice | CustomerID | Country        | Date       | Hour | Total_revenue |
+|-----------|-----------|----------------------------------|----------|-----------|------------|----------------|------------|------|---------------|
+| 574477    | 22591     | CARDHOLDER GINGHAM CHRISTMAS TREE| 1        | 3.25      | 15453.0    | United Kingdom | 2011-11-04 | 12   | 3.25          |
+| 570275    | 23541     | WALL ART CLASSIC PUDDINGS        | 12       | 7.45      | 13098.0    | United Kingdom | 2011-10-10 | 10   | 89.40         |
+| 566482    | 22508     | DOORSTOP RETROSPOT HEART         | 12       | 3.75      | 16609.0    | United Kingdom | 2011-09-13 | 9    | 45.00         |
+| 541215    | 22662     | LUNCH BAG DOLLY GIRL DESIGN      | 10       | 1.65      | 14329.0    | United Kingdom | 2011-01-14 | 13   | 16.50         |
+| 565930    | POST      | POSTAGE                          | 5        | 18.00     | 12685.0    | France         | 2011-09-08 | 10   | 90.00         |
+
 # Kết quả
 
 ### ✔ Tính toán CLTV
