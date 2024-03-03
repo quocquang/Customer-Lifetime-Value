@@ -141,13 +141,19 @@ data
 
 
 
-# Tính toán CLTV
-Tính toán các chỉ số chính:
-- num_days: Thời gian khách hàng gắn bó (tính bằng ngày)
-- num_transaction: Số lượng giao dịch
-- quantity: Tổng số lượng mua
-- total_revenue: Tổng doanh thu thu được
-- AOV (Giá trị đơn hàng trung bình): total_revenue / num_transaction
+# Calculate CLTV
+Calculate Key Metrics:
+- num_days: Time customers stay (in days)
+- num_transaction: Number of transactions
+- quantity: Total purchase quantity
+- total_revenue: Total revenue generated
+```python
+df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
+```
+- AOV (Average order value): total_revenue / num_transaction
+```python
+data['AOV'] = data['total_revenue']/data['num_transaction']
+```
 - purchase_freq: Tần suất giao dịch trung bình mỗi năm
 - repeat_rate: Tỷ lệ khách hàng thực hiện hơn một giao dịch
 - churn_rate: 1 - repeat_rate
