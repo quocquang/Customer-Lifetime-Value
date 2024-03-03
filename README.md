@@ -5,22 +5,22 @@
 # :briefcase: Business Case and Requirement
 
 
-* Tính toán Giá trị vòng đời khách hàng (CLTV) và Xây dựng mô hình dự đoán CLTV dựa trên dữ liệu lịch sử mua hàng.
+* Calculate Customer Lifetime Value (CLTV) and Build a predictive model for CLTV based on historical purchase data.
 
-- Mô hình sử dụng:
+ - The model utilizes:
  
- - Mô hình thống kê:
-    - Tính toán CLTV: sử dụng công thức CLTV  để tính toán giá trị CLTV cho từng khách hàng. Công thức này dựa trên các yếu tố sau:
-    - Giá trị trung bình đơn hàng (AOV): Tổng doanh thu chia cho số lượng đơn hàng.
-    - Tần suất mua hàng: Số lượng đơn hàng chia cho số ngày mua hàng.
-    - Tỷ lệ churn: Tỷ lệ khách hàng ngừng mua hàng trong một khoảng thời gian nhất định.
-    - Lợi nhuận biên: Tỷ lệ phần trăm lợi nhuận thu được từ mỗi đơn hàng.
-    - Phân tích thống kê: sử dụng các chỉ số thống kê như trung bình, trung vị, MAE (Mean Absolute Error) và RMSE (Root Mean Squared Error) để đánh giá hiệu quả của mô hình dự đoán CLTV.
-- Hồi quy tuyến tính:
-    - Đoạn code sử dụng mô hình hồi quy tuyến tính để dự đoán CLTV cho từng khách hàng dựa trên dữ liệu lịch sử mua hàng.
-    - Biến dự báo: Tháng-năm mua hàng.
-    - Biến phụ thuộc: CLTV.
-    - Sử dụng phương pháp chia tập dữ liệu thành tập huấn luyện và tập kiểm tra để đánh giá hiệu quả mô hình.
+    - Statistical Model:
+      - Calculating CLTV: Using the CLTV formula to compute the CLTV value for each customer. This formula relies on the following factors:
+        - Average Order Value (AOV): Total revenue divided by the number of orders.
+        - Purchase Frequency: The number of orders divided by the number of days.
+        - Churn Rate: The rate at which customers stop purchasing within a certain period of time.
+        - Profit Margin: The percentage of profit earned from each order.
+        - Statistical Analysis: Utilize statistical metrics such as mean, median, MAE (Mean Absolute Error), and RMSE (Root Mean Squared Error) to evaluate the effectiveness of the CLTV prediction model..
+   - Linear Regression:
+     - The code uses a linear regression model to predict CLTV for each customer based on purchase history data.
+     - Predictive variable: Purchase Month-Year.
+     - Dependent variable: CLTV.
+     - Using the method of splitting the dataset into training and testing sets to evaluate the model's effectiveness.
 
 ---
 
