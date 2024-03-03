@@ -27,7 +27,7 @@
 # :bookmark_tabs:Example Datasets
 
 ### ✔ Ecommerce_Data-1 dataset
-Provide information about orders
+
 - InvoiceNo: Unique identifier for each invoice.
 - StockCode: Code for the stock item.
 - Description: Description of the stock item.
@@ -55,7 +55,65 @@ First 10 rows
 | 541215    | 22662     | LUNCH BAG DOLLY GIRL DESIGN      | 10       | 1.65      | 14329.0    | United Kingdom | 2011-01-14 | 13   | 16.50         |
 | 565930    | POST      | POSTAGE                          | 5        | 18.00     | 12685.0    | France         | 2011-09-08 | 10   | 90.00         |
 
-# Kết quả
+---
+
+
+
+# A. Data Exploration and Cleansing
+
+## 🔤 IMPORT LIBRARY AND DATASET 
+
+<details><summary> Click to expand :arrow_down: </summary>
+  
+```python
+
+import pandas as pd
+import numpy as np
+import os 
+os.chdir("C:/Users/phu/OneDrive/Pictures")
+
+```
+
+```python
+
+#Upload dataset
+customers = pd.read_csv('/content/drive/MyDrive/Final/De 1/dataset/customers_dataset.csv')
+
+```
+
+## 🔎 EXPLORE, CLEAN & TRANSFORM DATA
+
+### 1️⃣ Ecommerce_Data-1  Dataset
+
+```python
+
+df=df.drop(columns='Unnamed: 0')
+
+```
+
+```python
+
+df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
+
+```
+
+```python
+
+df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
+
+```
+
+```python
+
+df['Date'] = pd.to_datetime(df['Date'])
+
+```
+
+```python
+
+df = df[df['Quantity'] >0]
+
+```
 
 ### ✔ Tính toán CLTV
 Tính toán các chỉ số chính:
