@@ -154,61 +154,182 @@ df['Total_revenue'] = df['Quantity'] * df['UnitPrice']
 ```python
 data['AOV'] = data['total_revenue']/data['num_transaction']
 ```
-- purchase_freq: Tần suất giao dịch trung bình mỗi năm
-- repeat_rate: Tỷ lệ khách hàng thực hiện hơn một giao dịch
+- purchase_freq: Average transaction frequency per year
+```python
+purchase_freq = sum(data['num_transaction'])/len(data)
+```
+- repeat_rate: Percentage of customers making more than one transaction
+```python
+repeat_rate = data[data['num_transaction'] >1].shape[0]/data.shape[0]
+```  
 - churn_rate: 1 - repeat_rate
+```python
+churn_rate = 1-repeat_rate
+```  
 - profit_margin: 10% của total_revenue
+```python
+data['profit_margin'] = data['total_revenue'] * .10
+```  
 - CLTV: ((AOV * purchase_freq) / churn_rate) * 0.10
+```python
+data['CLTV'] = ((data['AOV']* purchase_freq)/churn_rate)*.10
+```  
+---
+
+- Num_days (Number of days of purchase):
+   - There is a significant variation in the number of days customers make purchases, ranging from 18 days to 367 days.
+   - Some customers make purchases more frequently over the observation period.
+- Num_transaction (Number of transactions):
+   - Ranges from 2 transactions to 133 transactions, indicating a large diversity in the number of purchases among customers.
+   - Some customers make more transactions than others, possibly indicating their loyalty or engagement with the product or service.
+- Quantity (Quantity of products purchased):
+   - The quantity of products purchased ranges from 2 to 623 items.
+   - There is significant variation among customers in terms of the quantity of products purchased, reflecting different preferences or shopping needs.
+- Total_revenue (Total revenue):
+   - Average sales volume ranges from $45.60 to $1,146.59.
+   - There is a large discrepancy among customers in terms of spending, possibly reflecting their purchasing power and buying preferences.
+- AOV (Average Order Value):
+   - Average order value ranges from $2.45 to $78.70.
+   - AOV is an important metric to assess sales performance and the profitability of the business. Fluctuations in AOV may reflect changes in pricing strategies or differences in purchasing behavior among customers.
+
+
+| CustomerID | num_days | num_transaction | quanity | total_revenue | AOV | profit_margin | CLTV |
+|------------|----------|-----------------|---------|---------------|-----|---------------|-------|
+| 12977.0    | 156      | 1               | 2       | 0.78          | 0.78| 0.078         | 21.47 |
+| 14661.0    | 26       | 1               | 1       | 0.85          | 0.85| 0.085         | 23.39 |
+| 16658.0    | 368      | 1               | 1       | 0.85          | 0.85| 0.085         | 23.39 |
+| 17962.0    | 142      | 3               | 3       | 2.99          | 0.99| 0.299         | 27.43 |
+| 17859.0    | 304      | 5               | 5       | 5.21          | 1.04| 0.521         | 28.68 |
+| ...        | ...      | ...             | ...     | ...           | ... | ...           | ...   |
+| 12931.0    | 239      | 15              | 5590    | 9344.82       | 622.99| 934.48       | 17146.78 |
+| 16333.0    | 298      | 11              | 7840    | 7944.40       | 722.22| 794.44       | 19877.93 |
+| 17949.0    | 289      | 10              | 4565    | 7671.45       | 767.14| 767.14       | 21114.48 |
+| 16000.0    | 2        | 5               | 2630    | 7948.30       | 1589.66| 794.83      | 43752.92 |
+| 15749.0    | 332      | 4               | 8898    | 20713.30      | 5178.33| 2071.33     | 142525.36 |
 
 ---
 
-- Num_days (Số ngày mua hàng):
-   - Có sự biến động đáng kể trong số ngày mua hàng của các khách hàng, từ 18 ngày đến 367 ngày.
-   - Có một phần khách hàng mua hàng thường xuyên hơn trong thời gian quan sát.
-- Num_transaction (Số lần giao dịch):
-   - Từ 2 lần giao dịch tới 133 lần giao dịch, có sự đa dạng lớn về số lần mua hàng của các khách hàng.
-   - Có thể thấy một số khách hàng thực hiện nhiều giao dịch hơn so với số khác, điều này có thể chỉ ra sự trung thành hoặc tích cực của họ đối với sản phẩm hoặc dịch vụ.
-- Quanity (Số lượng sản phẩm mua):
-   - Số lượng sản phẩm mua hàng dao động từ 2 đến 623 sản phẩm.
-   - Có sự biến động lớn giữa các khách hàng trong việc mua sắm số lượng sản phẩm, có thể phản ánh sở thích hoặc nhu cầu mua hàng khác nhau của họ.
-- Total_revenue (Tổng doanh số bán hàng):
-   - Doanh số bán hàng trung bình từ 45,60 đô la đến 1.146,59 đô la.
-   - Có sự chênh lệch lớn giữa các khách hàng về mức độ chi tiêu, có thể phản ánh sức mua và ưu tiên mua hàng của họ.
-- AOV (Average Order Value - Giá trị đơn hàng trung bình):
-   - Giá trị đơn hàng trung bình dao động từ 2,45 đô la đến 78,70 đô la.
-   - AOV là một chỉ số quan trọng để đánh giá hiệu suất bán hàng và khả năng sinh lời của doanh nghiệp, sự biến động trong AOV có thể phản ánh sự biến động trong chiến lược giá cả hoặc sự khác biệt trong hành vi mua hàng của khách hàng.
+- Purchase Frequency:
+  - The average purchase frequency of customers is around 19.5 times during the observed period.
+  - This indicates that, on average, each customer makes approximately 19.5 transactions during the observed period.
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/194b2334-efcd-4121-b70e-014f69104fac)
+- Repeat Rate:
+  - The repeat purchase rate is about 93%, significantly higher than the remaining rate.
+  - This suggests that a large proportion of customers return to make purchases after their first purchase, which is a positive sign of customer loyalty.
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/ca5587e3-60ed-4d6d-a2aa-c185d9a8e4d5)
+- Churn Rate:
+  - The churn rate (customers leaving) is about 7%, much lower than the rate of customers returning to make purchases.
+  - This indicates that a small proportion of customers do not return to make purchases after their first purchase.
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/61f6d387-15ee-4d2c-b30b-4b9aca6199d9)
+- Profit Margin:
+  - Profit margin has been calculated based on total sales revenue with a profit margin of 10%.
+  - This is the expected profit that the business can generate from sales revenue.
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/440c4b4a-d67f-4c71-a9b7-3f7146bb19d0)
+- Customer Lifetime Value (CLTV):
+  - The average and median CLTV are calculated to be approximately $747.74 and $460.54, respectively.
+  - This is an estimate of the value that each customer can bring to the business over the entire cooperation period.
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/0e94aac8-e898-47d1-b9ba-e24d6c90e3c7)
 
-
----
-
-- Purchase Frequency (Tần suất mua hàng):
-  - Tần suất mua hàng trung bình của khách hàng là khoảng 19,5 lần trong khoảng thời gian quan sát.
-  - Điều này chỉ ra rằng trung bình mỗi khách hàng thực hiện khoảng 19,5 giao dịch trong khoảng thời gian được quan sát.
-  - Repeat Rate (Tỷ lệ khách hàng trở lại mua hàng):
-- Tỷ lệ khách hàng mua hàng lần thứ hai trở lên là khoảng 93%, cao hơn đáng kể so với tỷ lệ còn lại.
-  - Điều này cho thấy một tỷ lệ lớn các khách hàng trở lại mua hàng sau lần mua đầu tiên, đây là một dấu hiệu tích cực về sự trung thành của khách hàng.
-- Churn Rate (Tỷ lệ churn - Khách hàng bỏ đi):
-  - Tỷ lệ churn (khách hàng bỏ đi) là khoảng 7%, tỷ lệ này thấp hơn rất nhiều so với tỷ lệ khách hàng trở lại mua hàng.
-  - Điều này chỉ ra rằng một tỷ lệ nhỏ các khách hàng không trở lại mua hàng sau lần mua đầu tiên.
-- Profit Margin (Mar lợi nhuận):
-  - Mar lợi nhuận đã được tính dựa trên tổng doanh số bán hàng với mức lợi nhuận là 10%.
-  - Đây là lợi nhuận kỳ vọng mà doanh nghiệp có thể thu được từ doanh số bán hàng.
-- Customer Lifetime Value (CLTV - Giá trị khách hàng trọn đời):
-  - Giá trị trung bình và trung vị của CLTV được tính toán là khoảng 747,74 đô la và 460,54 đô la, tương ứng.
-  - Đây là ước tính về giá trị mà mỗi khách hàng có thể mang lại cho doanh nghiệp trong suốt thời gian hợp tác.
 ---
 ### ✔ Sử dụng mô hình hồi quy tuyến tính để dự đoán CLTV 
-- Dựa trên kết quả của mô hình hồi quy tuyến tính sử dụng các biến đầu vào là doanh số bán hàng theo từng tháng (trong trường hợp này là các tháng từ Tháng 7 năm 2011 đến Tháng 12 năm 2010), chúng ta có thể phân tích như sau:
-  - Hệ số Intercept: Intercept của mô hình là khoảng 21.48. Điều này có thể được hiểu là giá trị CLTV dự kiến khi tất cả các biến đầu vào đều bằng 0, tức là không có doanh số bán hàng trong bất kỳ tháng nào.
-  - Hệ số Coefficients (Hệ số hồi quy): Hệ số của mỗi biến đầu vào thể hiện mức độ ảnh hưởng của doanh số bán hàng trong từng tháng đối với CLTV. Ví dụ, hệ số cho tháng Dec-11 là khoảng 1.13, có nghĩa là mỗi đơn vị tăng trong doanh số bán hàng của tháng này sẽ dẫn đến một tăng khoảng 1.13 đơn vị trong CLTV. Các hệ số khác cũng tương tự, với mức độ ảnh hưởng khác nhau tùy thuộc vào từng tháng.
-- Đánh giá mô hình:
-  - Mean Absolute Error (MAE): Độ lớn trung bình của sai số tuyệt đối giữa giá trị CLTV dự đoán và giá trị thực tế trên tập kiểm tra là khoảng 131.41. Điều này cho biết mô hình có thể dự đoán giá trị CLTV với sai số trung bình khoảng 131.41 đơn vị.
-  - Mean Squared Error (MSE): Độ lớn trung bình của bình phương sai số giữa giá trị CLTV dự đoán và giá trị thực tế trên tập kiểm tra là khoảng 84139.95. MSE càng thấp càng tốt, vì nó biểu thị sự khác biệt trung bình giữa các dự đoán và giá trị thực tế.
-  - Root Mean Squared Error (RMSE): RMSE là căn bậc hai của MSE và là một chỉ số đánh giá mô hình phổ biến. Trong trường hợp này, RMSE khoảng 290.07 đơn vị, cho thấy sự biến thiên trung bình giữa các dự đoán và giá trị thực tế là khoảng 290.07 đơn vị.
+ 
+ ```python
+# Create a new column 'month-year' containing the month and year information from the 'Date' column
+df['month-year'] = df['Date'].apply(lambda x:x.strftime("%b-%y"))
+```
+
+ ```python
+# Selecting relevant columns for the model
+model = df[['CustomerID','InvoiceNo','Total_revenue','Quantity','UnitPrice','month-year']]
+```
+
+ ```python
+# Creating a pivot table to reshape the data
+sales = model.pivot_table(index=['CustomerID'],columns=['month-year'],values='Total_revenue',aggfunc='sum',fill_value=0).reset_index()
+```
+
+ ```python
+# Calculating CLV by summing up the total revenue across all months for each customer
+sales['CLV'] = sales.iloc[:,2:].sum(axis =1)
+```
+
+ ```python
+# print sales
+sales
+```
+| CustomerID | Apr-11 | Aug-11 | Dec-10 | Dec-11 | Feb-11 | Jan-11 | Jul-11 | Jun-11 | Mar-11 | May-11 | Nov-11 | Oct-11 | Sep-11 | CLV    |
+|------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| 12347.0    | 113.60 | 205.56 | 140.00 | 57.00  | 0.00   | 155.95 | 0.00   | 114.00 | 0.00   | 0.00   | 0.00   | 360.48 | 0.00   | 1032.99|
+| 12348.0    | 137.00 | 0.00   | 332.16 | 0.00   | 0.00   | 41.76  | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 40.00  | 413.92 |
+| 12349.0    | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 406.32 | 0.00   | 0.00   | 406.32 |
+| 12350.0    | 0.00   | 0.00   | 0.00   | 0.00   | 45.6   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 45.60  |
+| 12352.0    | 0.00   | 0.00   | 0.00   | 0.00   | 42.9   | 0.00   | 0.00   | 0.00   | 330.63 | 0.00   | 84.10  | 0.00   | 205.70 | 663.33 |
+| ...        | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    | ...    |
+| 18280.0    | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 52.75  | 0.00   | 0.00   | 0.00   | 0.00   | 52.75  |
+| 18281.0    | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 33.45  | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 33.45  |
+| 18282.0    | 0.00   | 12.75  | 0.00   | 55.10  | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 67.85  |
+| 18283.0    | 33.86  | 0.00   | 0.00   | 28.62  | 42.5   | 36.15  | 10.96  | 40.31  | 0.00   | 22.20  | 85.48  | 9.61   | 15.85  | 291.68 |
+| 18287.0    | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 0.00   | 268.08 | 0.00   | 96.88  | 0.00   | 364.96 |
+
+ ```python
+# Selecting features and target variable
+x = sales[['Dec-11','Nov-11','Oct-11','Sep-11','Aug-11','Jul-11']]
+y = sales[['CLV']]
+```
+
+ ```python
+# Importing necessary libraries
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+# Splitting the data into training and testing sets
+x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=0)
+# Creating and training the linear regression model
+linear = LinearRegression()
+linear.fit(x_train, y_train)
+# Making predictions
+y_pred = linear.predict(x_test)
+```
+
+ ```python
+print(linear.intercept_)
+print(linear.coef_)
+```
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/7053d64d-0736-4200-a2c3-347607ee7077)
+
+ ```python
+# Extracting coefficients and displaying them
+coffiicients = linear.coef_.reshape(6,1)
+a = pd.DataFrame(coffiicients,index=x_train.columns)
+```
+
+ ```python
+print("Intercept:", linear.intercept_)
+print("Coefficients:", linear.coef_)
+
+# Evaluate the model
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+```
+![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/6fdaa450-a887-4a21-92d2-c511a7eb6d03)
+
+
+---
+
+- Based on the results of the linear regression model using monthly sales revenue as input variables (in this case, from July 2011 to December 2010), we can analyze as follows:
+  - Intercept Coefficient: The intercept of the model is approximately 21.48. This can be understood as the expected CLTV value when all input variables are zero, meaning there is no sales revenue in any month.
+  - Coefficients (Regression Coefficients): The coefficient of each input variable reflects the degree of influence of sales revenue in each month on CLTV. For example, the coefficient for December 2011 is around 1.13, meaning each unit increase in sales revenue in that month leads to an increase of about 1.13 units in CLTV. Similarly, other coefficients vary in their impact depending on the month.
+- Model Evaluation:
+  - Mean Absolute Error (MAE): The average magnitude of the absolute error between the predicted CLTV and the actual CLTV on the test set is around 131.41. This indicates that the model can predict CLTV with an average error of about 131.41 units.
+  - Mean Squared Error (MSE): The average magnitude of the squared error between the predicted CLTV and the actual CLTV on the test set is approximately 84139.95. A lower MSE is desirable, as it represents the average difference between predictions and actual values.
+  - Root Mean Squared Error (RMSE): RMSE is the square root of MSE and is a popular model evaluation metric. In this case, the RMSE is around 290.07 units, indicating the average variation between predictions and actual values is about 290.07 units.
+
+ ---
 
 # 🧾 What can you practice with this case study?
 - Python
-  - pandas, numpy,matplotlib,seaborn.
+  - pandas, numpy, LinearRegression.
   - cleaning, check Null values, transforming.
   - import, save csv file. 
 
