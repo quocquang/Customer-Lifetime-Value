@@ -55,6 +55,7 @@ First 10 rows
 | 541215    | 22662     | LUNCH BAG DOLLY GIRL DESIGN      | 10       | 1.65      | 14329.0    | United Kingdom | 2011-01-14 | 13   | 16.50         |
 | 565930    | POST      | POSTAGE                          | 5        | 18.00     | 12685.0    | France         | 2011-09-08 | 10   | 90.00         |
 
+
 ---
 
 
@@ -115,7 +116,7 @@ df = df[df['Quantity'] >0]
 
 ```
 
-## ✔ Tính toán CLTV
+# Tính toán CLTV
 Tính toán các chỉ số chính:
 - num_days: Thời gian khách hàng gắn bó (tính bằng ngày)
 - num_transaction: Số lượng giao dịch
