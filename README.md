@@ -66,9 +66,9 @@ First 10 rows
   
 ```python
 
-import pandas as pd
-import numpy as np
-import os 
+ import pandas as pd
+ import numpy as np
+ import os 
 os.chdir("C:/Users/phu/OneDrive/Pictures")
 
 ```
