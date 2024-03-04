@@ -231,7 +231,7 @@ data['CLTV'] = ((data['AOV']* purchase_freq)/churn_rate)*.10
 ![image](https://github.com/quocquang/Marketing-Strategy-Analysis/assets/87820013/0e94aac8-e898-47d1-b9ba-e24d6c90e3c7)
 
 ---
-### ✔ Sử dụng mô hình hồi quy tuyến tính để dự đoán CLTV 
+### ✔ Use linear regression model to predict CLTV
  
  ```python
 # Create a new column 'month-year' containing the month and year information from the 'Date' column
